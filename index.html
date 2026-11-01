@@ -131,8 +131,9 @@
     <h1>Your Business Deserves<br>an <span class="accent">AI Receptionist</span></h1>
     <p class="hero-sub">Never miss a customer call again. Greeta AI answers, qualifies, and books appointments for your San Diego business — day and night, automatically.</p>
     <div class="hero-btns">
-      <button class="btn-primary" onclick="bookDemo()">🎯 Get a Free Demo</button>
-      <button class="btn-secondary" onclick="callUs()">📞 Call (785) 861-6464</button>
+      <button class="btn-primary" onclick="joinNow()">🚀 Join Now — Get Started</button>
+      <button class="btn-secondary" onclick="bookDemo()">🎯 Book a Free Demo</button>
+      <button class="btn-secondary" onclick="callUs()">📞 (785) 861-6464</button>
     </div>
   </section>
 
@@ -195,20 +196,51 @@
     </div>
   </section>
 
+  <!-- SCHEDULE A MEETING SECTION -->
+  <section class="section" style="background:var(--navy2)">
+    <div class="section-inner" style="text-align:center">
+      <span class="section-label">No Commitment · No Pressure</span>
+      <h2>Schedule a Meeting With Us</h2>
+      <p style="color:var(--muted);max-width:520px;margin:16px auto 48px">Pick the option that works for you. We'll show you a live AI receptionist demo and build a custom plan — all at no cost.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;max-width:900px;margin:0 auto">
+        <div class="card" style="text-align:left">
+          <div class="card-icon">🎯</div>
+          <h3>Google Meet Demo</h3>
+          <p style="margin-bottom:24px">See your AI receptionist live on a video call. We set it up, you experience it in real time.</p>
+          <button class="btn-primary" onclick="bookDemo()" style="width:100%;justify-content:center">Book Google Meet</button>
+        </div>
+        <div class="card" style="text-align:left;border-color:rgba(0,212,255,.3)">
+          <div class="card-icon">🚀</div>
+          <h3>Join Now & Get Started</h3>
+          <p style="margin-bottom:24px">Ready to go? Create your account on GreetNexaAI and get your AI receptionist set up today.</p>
+          <button class="btn-primary" onclick="joinNow()" style="width:100%">Join on GreetNexaAI →</button>
+        </div>
+        <div class="card" style="text-align:left">
+          <div class="card-icon">📞</div>
+          <h3>In-Person Meeting</h3>
+          <p style="margin-bottom:24px">Prefer face to face? We serve the San Diego area and are happy to meet you at your location.</p>
+          <button class="btn-secondary" onclick="callUs()" style="width:100%;border-color:rgba(0,212,255,.3)">Call (785) 861-6464</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <div class="cta-band">
     <span class="section-label">Serving San Diego & Beyond</span>
-    <h2>Ready to Hear Your AI Receptionist?</h2>
-    <p>The best way to understand what Greeta AI can do for your business is to experience it live. Call us or book a demo and we'll show you in minutes.</p>
+    <h2>Your AI Receptionist Is One Click Away</h2>
+    <p>Create your free account and experience Greeta AI — or call us to get a live demo first. Either way, we've got you.</p>
     <div class="phone-big">📞 (785) 861-6464</div>
-    <div style="margin-top:24px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
-      <button class="btn-primary" onclick="bookDemo()">Schedule a Google Meet</button>
-      <button class="btn-secondary" onclick="callUs()">Call Now</button>
+    <div style="margin-top:32px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+      <button class="btn-primary" onclick="joinNow()">🚀 Join Now at GreetNexaAI</button>
+      <button class="btn-secondary" onclick="bookDemo()">Book a Google Meet</button>
     </div>
+    <p style="margin-top:20px;font-size:13px;color:var(--muted)">Or visit directly: <a href="https://greetnexaai.com" target="_blank" style="color:var(--cyan);text-decoration:none">greetnexaai.com</a></p>
   </div>
 
   <footer>
     <div class="footer-logo">Greeta AI</div>
     <p style="color:var(--muted);font-size:14px;max-width:480px;margin:0 auto">AI receptionist services for businesses in San Diego and beyond.</p>
+    <div style="margin-top:16px"><a href="https://greetnexaai.com" target="_blank" style="display:inline-block;background:linear-gradient(135deg,var(--cyan),var(--cyan2));color:var(--navy);font-weight:700;padding:12px 28px;border-radius:10px;text-decoration:none;font-size:15px">🚀 Create Account at GreetNexaAI</a></div>
     <div class="footer-links">
       <span class="footer-link" onclick="show('home')">Home</span>
       <span class="footer-link" onclick="show('about')">About Us</span>
@@ -424,7 +456,13 @@ function show(page){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 function bookDemo(){
-  window.open('https://calendar.google.com/calendar/r/eventedit?text=Greeta+AI+Demo&details=AI+Receptionist+demo+with+Greeta+AI+(785)+861-6464','_blank');
+  window.open('https://cal.google.com/calendar/r?cid=greetaai','_blank');
+}
+function joinNow(){
+  window.open('https://greetnexaai.com','_blank');
+}
+function scheduleMeet(){
+  window.open('https://meet.google.com/new','_blank');
 }
 function callUs(){
   window.location.href='tel:+17858616464';
