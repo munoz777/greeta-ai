@@ -119,7 +119,7 @@
       <button class="nav-link" onclick="show('about')">About</button>
       <button class="nav-link" onclick="show('privacy')">Privacy</button>
       <button class="nav-link" onclick="show('terms')">Terms</button>
-      <button class="nav-link nav-cta" onclick="bookDemo()">Book Demo</button>
+      <button class="nav-link nav-cta" onclick="bookDemo()">📅 Book Demo</button>
     </div>
   </div>
 </nav>
@@ -455,15 +455,11 @@ function show(page){
   document.getElementById(page).classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
 }
-function bookDemo(){
-  window.open('https://cal.google.com/calendar/r?cid=greetaai','_blank');
-}
+function bookDemo(){ window.open('https://calendar.app.google/i2PtqFPXh4gSoDNV9','_blank'); }
 function joinNow(){
   window.open('https://greetnexaai.com','_blank');
 }
-function scheduleMeet(){
-  window.open('https://meet.google.com/new','_blank');
-}
+function scheduleMeet(){ window.open('https://calendar.app.google/i2PtqFPXh4gSoDNV9','_blank'); }
 function callUs(){
   window.location.href='tel:+17858616464';
 }
