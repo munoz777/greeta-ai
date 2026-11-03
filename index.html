@@ -104,6 +104,20 @@
     .cta-band{padding:40px 24px}
     .hero{padding:60px 5%}
   }
+
+  /* EMAIL CAPTURE */
+  .email-capture{background:linear-gradient(135deg,var(--navy3),var(--navy2));border:1px solid rgba(0,212,255,.2);border-radius:24px;padding:56px;text-align:center;margin:0 5% 60px}
+  .email-capture h2{font-size:clamp(24px,3.5vw,38px);margin-bottom:12px}
+  .email-capture p{color:var(--muted);max-width:480px;margin:0 auto 32px}
+  .capture-form{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:520px;margin:0 auto}
+  .capture-input{flex:1;min-width:220px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:14px 20px;color:var(--white);font-size:15px;font-family:inherit;outline:none;transition:.2s}
+  .capture-input::placeholder{color:var(--muted)}
+  .capture-input:focus{border-color:var(--cyan);background:rgba(0,212,255,.05)}
+  .capture-input::-webkit-input-placeholder{color:var(--muted)}
+  .capture-btn{background:linear-gradient(135deg,var(--cyan),var(--cyan2));color:var(--navy);padding:14px 28px;border-radius:12px;font-weight:700;font-size:15px;border:none;cursor:pointer;white-space:nowrap;transition:.2s}
+  .capture-btn:hover{opacity:.9;transform:translateY(-1px)}
+  .capture-note{font-size:12px;color:var(--muted);margin-top:14px}
+  .capture-success{display:none;background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.3);border-radius:12px;padding:20px;margin-top:16px;color:var(--cyan);font-weight:600}
 </style>
 </head>
 <body>
@@ -119,6 +133,7 @@
       <button class="nav-link" onclick="show('about')">About</button>
       <button class="nav-link" onclick="show('privacy')">Privacy</button>
       <button class="nav-link" onclick="show('terms')">Terms</button>
+      <button class="nav-link" onclick="document.getElementById('get-started').scrollIntoView({behavior:'smooth'})">Free Guide</button>
       <button class="nav-link nav-cta" onclick="bookDemo()">📅 Book Demo</button>
     </div>
   </div>
@@ -195,6 +210,23 @@
       </div>
     </div>
   </section>
+
+  
+  <!-- EMAIL CAPTURE SECTION -->
+  <div class="email-capture" id="get-started">
+    <span class="section-label">Free Resource</span>
+    <h2>Get Our Free Guide:<br>"Never Miss a Customer Call"</h2>
+    <p>5 ways San Diego businesses lose customers to missed calls — and how to fix it. We'll send it to your inbox instantly.</p>
+    <form class="capture-form" onsubmit="submitEmail(event)">
+      <input class="capture-input" type="text" id="lead-name" placeholder="Your first name" required>
+      <input class="capture-input" type="email" id="lead-email" placeholder="Your email address" required>
+      <button class="capture-btn" type="submit">Send Me the Guide →</button>
+    </form>
+    <div class="capture-success" id="capture-success">
+      ✅ On its way! Check your inbox. We'll also reach out to schedule your free demo.
+    </div>
+    <p class="capture-note">No spam. Just one guide and a demo offer. Unsubscribe anytime.</p>
+  </div>
 
   <!-- SCHEDULE A MEETING SECTION -->
   <section class="section" style="background:var(--navy2)">
@@ -460,6 +492,24 @@ function joinNow(){
   window.open('https://greetnexaai.com','_blank');
 }
 function scheduleMeet(){ window.open('https://calendar.app.google/i2PtqFPXh4gSoDNV9','_blank'); }
+function submitEmail(e){
+  e.preventDefault();
+  const name = document.getElementById('lead-name').value;
+  const email = document.getElementById('lead-email').value;
+  // Send to Brevo (replace YOUR_BREVO_LIST_ID and key after setup)
+  // For now: open calendar so they can book right away
+  document.getElementById('capture-success').style.display = 'block';
+  document.querySelector('.capture-form').style.opacity = '0.4';
+  document.querySelector('.capture-form').style.pointerEvents = 'none';
+  // Also log to console for now (replace with Brevo API call)
+  console.log('Lead captured:', name, email);
+  // Offer demo booking after 2 seconds
+  setTimeout(() => {
+    if(confirm('Guide sent! Want to book a free live demo while you\'re here?')) {
+      window.open('https://calendar.app.google/i2PtqFPXh4gSoDNV9','_blank');
+    }
+  }, 2000);
+}
 function callUs(){
   window.location.href='tel:+17858616464';
 }
